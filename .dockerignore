@@ -1,0 +1,8 @@
+*.json
+venv/
+env/
+*.http
+*.md
+*.ipynb
+*.ipynb_checkpoints
+*__pycache__
