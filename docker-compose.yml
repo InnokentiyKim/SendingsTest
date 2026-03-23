@@ -1,0 +1,21 @@
+services:
+  redis:
+   image: redis:latest
+   container_name: redis
+   ports:
+      - "6379:6379"
+   restart: always
+
+  app:
+    build: .
+    container_name: myapp
+    ports:
+      - "8000:8000"
+    environment:
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL:-redis://redis:6379/0}
+
+    command: sh -c "celery -A sendings worker -l info & python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+
+    depends_on:
+      - redis
+    restart: always
