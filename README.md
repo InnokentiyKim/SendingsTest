@@ -37,6 +37,9 @@ docker exec -it myapp python manage.py import_sendings data/test_sendings.xlsx
 
 # Запуск тестов внутри контейнера
 docker exec -it myapp pytest
+
+# Просмотр логов внутри контейнера (проверка рассылок)
+docker logs myapp
 ````
 
 
