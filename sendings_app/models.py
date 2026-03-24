@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Sending(models.Model):
-    """Model for tracking email sending tasks."""
+    """Model for representing a sending record, which includes details about the email to be sent and its status."""
 
     external_id = models.CharField(
         "Внешний идентификатор",
